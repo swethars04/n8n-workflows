@@ -1,0 +1,794 @@
+{
+  "name": "HR & INTERNSHIP MANAGEMENT",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "documentId": {
+          "__rl": true,
+          "value": "1D4RjoYzXEJVQJkTecmt9NVBVruBD_e9S2Lj3feBOAB8",
+          "mode": "list",
+          "cachedResultName": "intern list",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1D4RjoYzXEJVQJkTecmt9NVBVruBD_e9S2Lj3feBOAB8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1D4RjoYzXEJVQJkTecmt9NVBVruBD_e9S2Lj3feBOAB8/edit#gid=0"
+        },
+        "options": {}
+      },
+      "name": "Google Sheets Trigger",
+      "type": "n8n-nodes-base.googleSheetsTrigger",
+      "typeVersion": 1,
+      "position": [
+        -560,
+        32
+      ],
+      "id": "882ee2de-add5-4f19-9351-e7fd34fed99b",
+      "credentials": {
+        "googleSheetsTriggerOAuth2Api": {
+          "id": "2jUyH9MTtbcjezPd",
+          "name": "Google Sheets Trigger account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "Status",
+              "value": "Present"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Set Attendance",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        -288,
+        32
+      ],
+      "id": "4d8d24a4-d3f1-44bd-a716-088424c61a7d"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1D4RjoYzXEJVQJkTecmt9NVBVruBD_e9S2Lj3feBOAB8",
+          "mode": "list",
+          "cachedResultName": "intern list",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1D4RjoYzXEJVQJkTecmt9NVBVruBD_e9S2Lj3feBOAB8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1D4RjoYzXEJVQJkTecmt9NVBVruBD_e9S2Lj3feBOAB8/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Intern ID": "={{ $json['Intern ID'] }}",
+            "Name": "={{ $json.Name }}",
+            "Email": "={{ $json.Email }}",
+            "Domain": "={{ $json.Domain }}",
+            "Start Date": "={{ $json['Start Date'] }}",
+            "End Date": "={{ $json['End Date'] }}",
+            "Tasks Status": "={{ $json['Tasks Status'] }}",
+            "Certificate Generated": "={{ $json['Certificate Generated'] }}",
+            "Certificate Link": "={{ $json['Certificate Link'] }}",
+            "Feedback Submitted": "={{ $json['Feedback Submitted'] }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Intern ID",
+              "displayName": "Intern ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Domain",
+              "displayName": "Domain",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Start Date",
+              "displayName": "Start Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "End Date",
+              "displayName": "End Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Tasks Status",
+              "displayName": "Tasks Status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Certificate Generated",
+              "displayName": "Certificate Generated",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Certificate Link",
+              "displayName": "Certificate Link",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Feedback Submitted",
+              "displayName": "Feedback Submitted",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "name": "Update Attendance Sheet",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [
+        -16,
+        32
+      ],
+      "id": "006b056e-0996-4759-af60-de841f5d3a52",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "adu3mO0uJu40i1vx",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C0A7DUPR6SC",
+          "mode": "list",
+          "cachedResultName": "n8n"
+        },
+        "text": "=✅ Daily Check-in Received\n👤 Intern: {{ $json.Name }}\n📅 Date: {{ $json['Start Date'] }}\n🕘 Status: Present",
+        "otherOptions": {}
+      },
+      "name": "Notify Team Lead (Slack)",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2,
+      "position": [
+        224,
+        32
+      ],
+      "id": "9f1c27b8-10ac-480e-8b26-268384666725",
+      "webhookId": "ea245e57-85a1-4795-8f6b-0fb4bf8607c8",
+      "credentials": {
+        "slackApi": {
+          "id": "ilR8VHLlH7Ced624",
+          "name": "Slack account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "triggerTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        }
+      },
+      "name": "Weekly Trigger",
+      "type": "n8n-nodes-base.cron",
+      "typeVersion": 1,
+      "position": [
+        -1056,
+        336
+      ],
+      "id": "c7ba93fe-c69d-4627-a813-41c2acbe5712"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "196g57XDumW9sghbZ89L25Uv3t2xGJBOPtK8M38d7j8A",
+          "mode": "list",
+          "cachedResultName": "Intern perfomance",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/196g57XDumW9sghbZ89L25Uv3t2xGJBOPtK8M38d7j8A/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/196g57XDumW9sghbZ89L25Uv3t2xGJBOPtK8M38d7j8A/edit#gid=0"
+        },
+        "options": {}
+      },
+      "name": "Read Performance Sheet",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [
+        -880,
+        336
+      ],
+      "id": "93f4e00c-b9c4-4b41-a33d-6347cb26c3de",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "adu3mO0uJu40i1vx",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "id": "166b7a33-d963-420b-9a74-15e336e19f79",
+              "leftValue": "={{ $json.Rating }}",
+              "rightValue": "Excellent",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "name": "Check Excellent Performance",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        -640,
+        320
+      ],
+      "id": "f4f5c2e8-1ce4-4fc6-8bc6-e38cd2a6df2e"
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C0A7DUPR6SC",
+          "mode": "list",
+          "cachedResultName": "n8n"
+        },
+        "text": "=📊 Weekly Intern Performance Review\n👤 Intern: {{$json[\"Intern Name\"]}}\n✅ Completion: {{$json[\"Completion %\"]}}%\n⭐ Rating: {{$json[\"Rating\"]}}\n📅 Please schedule a feedback session.",
+        "otherOptions": {}
+      },
+      "name": "Notify Manager",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2,
+      "position": [
+        -352,
+        400
+      ],
+      "id": "fc193a2d-7737-4b4a-81c2-1f6128a5dff1",
+      "webhookId": "0aaee70e-de89-455f-ae9a-60f6cd940ad8",
+      "credentials": {
+        "slackApi": {
+          "id": "ilR8VHLlH7Ced624",
+          "name": "Slack account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "folderId": "10hzIcLes__spyM9RRVjmlS3AkHC3FozA",
+        "title": "=Internship Excellence Certificate - {{ $('Read Performance Sheet').item.json['Intern Name'] }}"
+      },
+      "name": "Generate Certificate",
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 1,
+      "position": [
+        -352,
+        240
+      ],
+      "id": "fe838baf-e48d-43b3-9670-c56f3287710f",
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "Zig20FXEsikU4b4V",
+          "name": "Google Docs account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1ZAC9LXji7X77NkC2MWHOpPSWcuXV0-KZaBKRmOS1twc",
+          "mode": "list",
+          "cachedResultName": "certificate issued",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1ZAC9LXji7X77NkC2MWHOpPSWcuXV0-KZaBKRmOS1twc/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1ZAC9LXji7X77NkC2MWHOpPSWcuXV0-KZaBKRmOS1twc/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Intern Name": "={{ $('Read Performance Sheet').item.json['Intern Name'] }}",
+            "Email": "={{ $('Read Performance Sheet').item.json.Email }}",
+            "Certificate Status": "issued",
+            "Date": "08/01/2026"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Intern Name",
+              "displayName": "Intern Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Date",
+              "displayName": "Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Certificate Status",
+              "displayName": "Certificate Status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "name": "Log Certificate",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [
+        -160,
+        240
+      ],
+      "id": "7ad44af9-283e-4f77-b7ed-c489f229b28f",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "adu3mO0uJu40i1vx",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Daily Intern Check-in Automation \n**Trigger:** Google Form daily check-in submission \n**Actions:**  \n* Update attendance in Google Sheets \n* Notify team lead on Slack ",
+        "height": 208,
+        "width": 368
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1024,
+        0
+      ],
+      "typeVersion": 1,
+      "id": "6722db06-4da3-4d0d-8eed-47e85af23475",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "## Intern Performance & Review \n**Trigger:**\n Weekly completion of assigned tasks \n**Actions:**\n* Generate a performance report \n*  Notify manager for feedback session \n* If performance is excellent, auto-generate certificate ",
+        "height": 192,
+        "width": 416
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        64,
+        304
+      ],
+      "typeVersion": 1,
+      "id": "2e7b9344-8d16-4511-aa5a-c6ab5f2e0c20",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "documentId": {
+          "__rl": true,
+          "value": "196g57XDumW9sghbZ89L25Uv3t2xGJBOPtK8M38d7j8A",
+          "mode": "list",
+          "cachedResultName": "Intern perfomance",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/196g57XDumW9sghbZ89L25Uv3t2xGJBOPtK8M38d7j8A/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/196g57XDumW9sghbZ89L25Uv3t2xGJBOPtK8M38d7j8A/edit#gid=0"
+        },
+        "options": {}
+      },
+      "name": "Intern Task Completion Trigger",
+      "type": "n8n-nodes-base.googleSheetsTrigger",
+      "typeVersion": 1,
+      "position": [
+        -512,
+        688
+      ],
+      "id": "199dd569-77e2-49d8-b74b-767ee36085a6",
+      "credentials": {
+        "googleSheetsTriggerOAuth2Api": {
+          "id": "2jUyH9MTtbcjezPd",
+          "name": "Google Sheets Trigger account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "id": "ca62912c-67a6-4441-b5a2-110087815f24",
+              "leftValue": "={{ $json['Tasks Completed'] }}",
+              "rightValue": 10,
+              "operator": {
+                "type": "number",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "name": "Check All Tasks Completed",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        -288,
+        672
+      ],
+      "id": "4a9bf5f5-0d6f-49f0-8ae4-29f39ded54b3"
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "folderId": "10hzIcLes__spyM9RRVjmlS3AkHC3FozA",
+        "title": "=Internship Completion Certificate - {{$json[\"Intern Name\"]}}"
+      },
+      "name": "Generate Certificate1",
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 1,
+      "position": [
+        16,
+        656
+      ],
+      "id": "25f2c40e-596e-4a17-8239-011861e41b7b",
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "Zig20FXEsikU4b4V",
+          "name": "Google Docs account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.Email }}",
+        "subject": "🎉 Internship Completion – Thank You!",
+        "emailType": "text",
+        "message": "=Dear {{$json[\"Intern Name\"]}},\n\nCongratulations on successfully completing your internship!\n\nPlease find your certificate attached.\n\nWe would love your feedback:\n👉 Feedback Form: https://forms.google.com/your-feedback-link\n\nIf you enjoyed your experience, please leave us a Google Review:\n⭐ https://g.page/your-google-review-link\n\nBest Regards,\nHR Team",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        48,
+        832
+      ],
+      "id": "fdd945f2-7813-4eee-b0b5-128f532f8060",
+      "name": "Send a message",
+      "webhookId": "0387b63b-525c-4fd3-a85f-88e2e386bdff",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "n2I6UwAIiotQpDo2",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Internship Completion & Certificate Generation \n**Trigger:**\n All tasks marked as complete \n**Actions:**  \n* Generate a custom certificate in Google Docs \n* Send thank you email + feedback request \n* Ask for a Google Review",
+        "height": 208,
+        "width": 448
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1072,
+        640
+      ],
+      "typeVersion": 1,
+      "id": "30cdee66-4b82-4517-86ae-d2fffdca7716",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "insert"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        224,
+        656
+      ],
+      "id": "dc0e56db-5f75-4d5b-bf20-508bdb14a454",
+      "name": "Update a document",
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "Zig20FXEsikU4b4V",
+          "name": "Google Docs account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Google Sheets Trigger": {
+      "main": [
+        [
+          {
+            "node": "Set Attendance",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Attendance": {
+      "main": [
+        [
+          {
+            "node": "Update Attendance Sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Attendance Sheet": {
+      "main": [
+        [
+          {
+            "node": "Notify Team Lead (Slack)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Weekly Trigger": {
+      "main": [
+        [
+          {
+            "node": "Read Performance Sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read Performance Sheet": {
+      "main": [
+        [
+          {
+            "node": "Check Excellent Performance",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Excellent Performance": {
+      "main": [
+        [
+          {
+            "node": "Generate Certificate",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Notify Manager",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Certificate": {
+      "main": [
+        [
+          {
+            "node": "Log Certificate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Notify Manager": {
+      "main": [
+        []
+      ]
+    },
+    "Intern Task Completion Trigger": {
+      "main": [
+        [
+          {
+            "node": "Check All Tasks Completed",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check All Tasks Completed": {
+      "main": [
+        [
+          {
+            "node": "Generate Certificate1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Generate Certificate1": {
+      "main": [
+        [
+          {
+            "node": "Update a document",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "versionId": "1c37d3d8-9e01-429e-93cc-34ca793573fa",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "e88035cf597e4a159455a50ddaefd283cc5bad49cf1563d4180fe17cc79988e6"
+  },
+  "id": "1DrIMZl7YCN9igID",
+  "tags": []
+}
